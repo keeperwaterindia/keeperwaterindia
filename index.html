@@ -343,7 +343,42 @@ footer{
   font-size: 18px;
   line-height: 1.6;
 }
+.keeper-second-features {
+    display: flex;
+    gap: 10px;
+    margin: 22px 0;
+    width: 100%;
+}
 
+.second-feature {
+    flex: 1;
+    min-width: 0;
+    min-height: 82px;
+    border: 1px solid #dcae52;
+    border-radius: 13px;
+    background: rgba(90, 42, 20, 0.45);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 9px 4px;
+    color: #fff4df;
+}
+
+.second-feature span {
+    font-size: 21px;
+    font-weight: bold;
+    color: #e4bd70;
+    margin-bottom: 5px;
+}
+
+.second-feature small {
+    font-size: 11px;
+    line-height: 1.25;
+    color: #fff4df;
+}
+  
 .keeper-second-product {
     position: absolute;
     right: 13%;
@@ -508,10 +543,17 @@ footer{
 }
 
 .keeper-third-feature span {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    margin: 0 auto 10px;
+    border: 1px solid #e9bd72;
+    border-radius: 50%;
+    background: rgba(90, 42, 20, 0.65);
     color: #e9bd72;
-    font-size: 28px;
-    margin-bottom: 8px;
+    font-size: 22px;
 }
 
 .keeper-third-button {
@@ -673,7 +715,20 @@ footer{
     border-right: 1px solid #c99b4a;
     padding: 8px 4px;
 }
-
+.keeper-fourth-features span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    margin: 0 auto 10px;
+    border: 1px solid #dca852;
+    border-radius: 50%;
+    color: #e9bd72;
+    font-size: 24px;
+    background: rgba(90, 42, 20, 0.55);
+}
+  
 .keeper-fourth-button {
     display: inline-block;
     padding: 14px 25px;
@@ -817,7 +872,21 @@ footer{
     font-size: 25px;
     font-weight: bold;
 }
-
+.keeper-fifth-features b {
+    width: 52px;
+    height: 52px;
+    border: 2px solid #e9bd72;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+    color: #e9bd72;
+    font-size: 25px;
+    box-sizing: border-box;
+    background: rgba(90, 42, 20, 0.35);
+}
+  
 .keeper-fifth-features span {
     display: block;
     color: white;
@@ -839,6 +908,38 @@ footer{
 
 .keeper-fifth-categories {
     display: none;
+}
+.keeper-fifth-categories {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+    width: 100%;
+    margin-top: 28px;
+}
+
+.keeper-fifth-categories span {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #e9bd72;
+    font-size: 30px;
+    min-width: 0;
+    padding: 0 5px;
+    border-right: 1px solid #c99b4a;
+}
+
+.keeper-fifth-categories span:last-child {
+    border-right: none;
+}
+
+.keeper-fifth-categories small {
+    color: #fff4df;
+    font-size: 12px;
+    line-height: 1.3;
+    margin-top: 9px;
 }
 
 </style>
@@ -921,7 +1022,24 @@ footer{
     </p>
 
     <div class="gold-line"></div>
-
+<div class="keeper-second-features">
+    <div class="second-feature">
+        <span>💧</span>
+        <small>Antioxidant<br>Rich Water</small>
+    </div>
+    <div class="second-feature">
+        <span>pH</span>
+        <small>pH<br>Balancing</small>
+    </div>
+    <div class="second-feature">
+        <span>🛡️</span>
+        <small>Boost<br>Immunity</small>
+    </div>
+    <div class="second-feature">
+        <span>💦</span>
+        <small>Enhances<br>Hydration</small>
+    </div>
+</div>
     <div class="keeper-hero-buttons">
       <a class="keeper-primary" href="#products">
         Explore PANCH →
@@ -1025,10 +1143,10 @@ style="position:absolute;right:20px;top:50%;transform:translateY(-50%);z-index:2
         </p>
 
         <div class="keeper-fourth-features">
-            <div>Alkaline Ionization</div>
-            <div>Advanced Filtration</div>
-            <div>Rich in Antioxidants</div>
-            <div>Ideal for Commercial Use</div>
+           <div><span>♧</span>Alkaline Ionization</div>
+<div><span>▱</span>Advanced Filtration</div>
+<div><span>❧</span>Rich in Antioxidants</div>
+<div><span>▥</span>Ideal for Commercial Use</div>
         </div>
 
         <a href="#products" class="keeper-fourth-button">
@@ -1057,27 +1175,39 @@ style="position:absolute;right:20px;top:50%;transform:translateY(-50%);z-index:2
 
     <p>For Domestic, Commercial<br>& Industrial Use</p>
 
-    <div class="keeper-fifth-features">
-      <div>💧<span>Purification<br>& Filtration</span></div>
-      <div>pH<span>Alkaline & Mineral<br>Enrichment</span></div>
-      <div>⚙️<span>Long<br>Service Life</span></div>
-      <div>🛡️<span>Reliable<br>& Durable</span></div>
-    </div>
+   <div class="keeper-fifth-features">
+  <div>
+    <b>💧</b>
+    <span>Purification<br>& Filtration</span>
+  </div>
+  <div>
+    <b>pH</b>
+    <span>Alkaline & Mineral<br>Enrichment</span>
+  </div>
+  <div>
+    <b>⚙️</b>
+    <span>Long<br>Service Life</span>
+  </div>
+  <div>
+    <b>🛡️</b>
+    <span>Reliable<br>& Durable</span>
+  </div>
+</div>
 
     <a href="#products" class="keeper-fifth-button">
       Explore Our Range →
     </a>
   </div>
 
-  <div class="keeper-fifth-categories">
-    <span>Homes</span>
-    <span>Offices</span>
-    <span>Industries</span>
-    <span>Hospitals & Clinics</span>
-    <span>Hotels & Restaurants</span>
-    <span>Schools & Colleges</span>
-    <span>Beverage & Food Industry</span>
-  </div>
+ <div class="keeper-fifth-categories">
+  <span>🏠<small>Homes</small></span>
+  <span>🏢<small>Offices</small></span>
+  <span>🏭<small>Industries</small></span>
+  <span>🏥<small>Hospitals & Clinics</small></span>
+  <span>🏨<small>Hotels & Restaurants</small></span>
+  <span>🏫<small>Schools & Colleges</small></span>
+  <span>🍾<small>Beverage & Food Industry</small></span>
+</div>
 </div>
 
 </section>
