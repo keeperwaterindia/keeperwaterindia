@@ -427,6 +427,139 @@ footer{
 .keeper-products img:nth-child(3) {
   width: 15%;
 }
+/* KEEPER THIRD HERO SLIDE */
+
+.hero.show-third-slide {
+    background-image: url('keeper-hero-slide-3-bg.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.keeper-third-slide {
+    display: none;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    padding: 45px 7%;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+}
+
+.hero.show-third-slide .keeper-third-slide {
+    display: flex;
+}
+
+.keeper-third-text {
+    width: 43%;
+    position: relative;
+    z-index: 3;
+}
+
+.keeper-third-text .eyebrow {
+    color: #f2d49b;
+    letter-spacing: 3px;
+    font-size: 14px;
+    margin-bottom: 18px;
+}
+
+.keeper-third-text h2 {
+    color: #fff2d9;
+    font-size: clamp(32px, 4vw, 55px);
+    line-height: 1.12;
+    margin: 0 0 18px;
+}
+
+.keeper-third-text h2 span {
+    color: #e9bd72;
+    font-weight: 800;
+}
+
+.keeper-third-text p {
+    color: #fff;
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+.keeper-third-features {
+    display: flex;
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.keeper-third-feature {
+    color: #fff4df;
+    font-size: 13px;
+    text-align: center;
+    max-width: 105px;
+}
+
+.keeper-third-feature span {
+    display: block;
+    color: #e9bd72;
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.keeper-third-button {
+    display: inline-block;
+    background: linear-gradient(135deg, #f5d99f, #dca85b);
+    color: #351609;
+    padding: 15px 28px;
+    border-radius: 35px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.keeper-third-products {
+    position: absolute;
+    right: 2%;
+    bottom: 5%;
+    width: 58%;
+    height: 82%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.keeper-third-products img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center bottom;
+    filter: drop-shadow(0 12px 10px rgba(0,0,0,.25));
+}
+
+@media (max-width: 850px) {
+    .keeper-third-slide {
+        padding: 25px 5%;
+        align-items: flex-start;
+    }
+
+    .keeper-third-text {
+        width: 100%;
+    }
+
+    .keeper-third-text h2 {
+        font-size: 32px;
+    }
+
+    .keeper-third-text p {
+        font-size: 15px;
+    }
+
+    .keeper-third-products {
+        width: 95%;
+        height: 42%;
+        right: 2%;
+        bottom: 3%;
+    }
+}
 
 </style>
 </head>
@@ -524,6 +657,69 @@ footer{
     src="keeper-pancha-ionizer.png"
     alt="KEEPER PANCH Alkaline Water Ionizer">
 </div>
+<!-- KEEPER THIRD HERO SLIDE -->
+<div class="keeper-third-slide">
+
+    <div class="keeper-third-text">
+
+        <div class="eyebrow">KEEPER WATER PURIFIERS</div>
+
+        <h2>
+            Complete Range of
+            <span>Water Purifiers</span>
+            for a Healthier Home
+        </h2>
+
+        <p>
+            Advanced purification and multi-stage filtration
+            for safe and hygienic drinking water.
+        </p>
+
+        <div class="keeper-third-features">
+
+            <div class="keeper-third-feature">
+                <span>♧</span>
+                Advanced Purification
+            </div>
+
+            <div class="keeper-third-feature">
+                <span>▤</span>
+                Multi-Stage Filtration
+            </div>
+
+            <div class="keeper-third-feature">
+                <span>✓</span>
+                Safe &amp; Hygienic
+            </div>
+
+            <div class="keeper-third-feature">
+                <span>⌂</span>
+                Ideal for Every Home
+            </div>
+
+        </div>
+
+        <a class="keeper-third-button" href="#products">
+            Explore Our Range →
+        </a>
+
+    </div>
+
+    <div class="keeper-third-products">
+        <img src="keeper-slide-3-products.png"
+             alt="KEEPER Water Purifiers">
+    </div>
+
+</div>
+<button onclick="changeHeroSlide(-1)" type="button"
+style="position:absolute;left:20px;top:50%;transform:translateY(-50%);z-index:20;width:48px;height:48px;border-radius:50%;border:1px solid #dcae52;background:rgba(73,32,15,0.75);color:white;font-size:30px;cursor:pointer;">
+‹
+</button>
+
+<button onclick="changeHeroSlide(1)" type="button"
+style="position:absolute;right:20px;top:50%;transform:translateY(-50%);z-index:20;width:48px;height:48px;border-radius:50%;border:1px solid #dcae52;background:rgba(73,32,15,0.75);color:white;font-size:30px;cursor:pointer;">
+›
+</button>
 
 </section>
 
@@ -574,11 +770,28 @@ footer{
 
 const hero = document.querySelector('.hero');
 
-let showSecond = false;
+let currentSlide = 0;
+
+function showSlide(index) {
+    currentSlide = (index + 3) % 3;
+
+    hero.classList.toggle(
+        'show-second-slide',
+        currentSlide === 1
+    );
+
+    hero.classList.toggle(
+        'show-third-slide',
+        currentSlide === 2
+    );
+}
+
+function changeHeroSlide(direction) {
+    showSlide(currentSlide + direction);
+}
 
 setInterval(() => {
-  showSecond = !showSecond;
-  hero.classList.toggle('show-second-slide', showSecond);
+    showSlide(currentSlide + 1);
 }, 5000);
 
 </script>
