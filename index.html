@@ -615,6 +615,16 @@ footer{
 .hero.show-fourth-slide .keeper-third-slide {
     display: none;
 }
+.hero.show-fifth-slide .keeper-fifth-slide {
+    display: flex;
+}
+
+.hero.show-fifth-slide .keeper-hero-layout,
+.hero.show-fifth-slide .keeper-second-slide,
+.hero.show-fifth-slide .keeper-third-slide,
+.hero.show-fifth-slide .keeper-fourth-slide {
+    display: none;
+}
 
 .keeper-fourth-text {
     position: relative;
@@ -755,6 +765,80 @@ footer{
         width: 32%;
         height: 100%;
     }
+}
+/* COMPLETE WATER SOLUTIONS SLIDE */
+
+.keeper-fifth-slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: url('keeper-complete-water-solutions-products.png') center center / cover no-repeat;
+    overflow: hidden;
+    display: none;
+    z-index: 3;
+}
+
+.keeper-fifth-text {
+    position: absolute;
+    left: 3%;
+    top: 15%;
+    width: 32%;
+    color: #fff;
+    z-index: 4;
+}
+
+.keeper-fifth-text h2 {
+    font-size: 48px;
+    line-height: 1.05;
+    font-weight: 800;
+    font-style: italic;
+    color: #f8d47a;
+    margin: 0 0 12px;
+}
+
+.keeper-fifth-text p {
+    font-size: 25px;
+    line-height: 1.2;
+    font-weight: 600;
+    margin: 0 0 25px;
+}
+
+.keeper-fifth-features {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 28px;
+}
+
+.keeper-fifth-features div {
+    flex: 1;
+    text-align: center;
+    color: #f8d47a;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.keeper-fifth-features span {
+    display: block;
+    color: white;
+    font-size: 13px;
+    line-height: 1.2;
+    margin-top: 8px;
+}
+
+.keeper-fifth-button {
+    display: inline-block;
+    padding: 14px 25px;
+    border-radius: 35px;
+    background: linear-gradient(180deg, #ffe58b, #e99b00);
+    color: #321406;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.keeper-fifth-categories {
+    display: none;
 }
 
 </style>
@@ -921,6 +1005,7 @@ style="position:absolute;right:20px;top:50%;transform:translateY(-50%);z-index:2
   <button class="hero-dot" onclick="showSlide(1)" aria-label="Slide 2"></button>
   <button class="hero-dot" onclick="showSlide(2)" aria-label="Slide 3"></button>
   <button class="hero-dot" onclick="showSlide(3)" aria-label="Slide 4"></button>
+  <button class="hero-dot" onclick="showSlide(4)" aria-label="Slide 5"></button>
 </div>
 <!-- KEEPER FOURTH HERO SLIDE -->
 <div class="keeper-fourth-slide">
@@ -965,6 +1050,34 @@ style="position:absolute;right:20px;top:50%;transform:translateY(-50%);z-index:2
 
     </div>
 
+</div>
+<div class="keeper-fifth-slide">
+  <div class="keeper-fifth-text">
+    <h2>Complete<br>Water Solutions</h2>
+
+    <p>For Domestic, Commercial<br>& Industrial Use</p>
+
+    <div class="keeper-fifth-features">
+      <div>💧<span>Purification<br>& Filtration</span></div>
+      <div>pH<span>Alkaline & Mineral<br>Enrichment</span></div>
+      <div>⚙️<span>Long<br>Service Life</span></div>
+      <div>🛡️<span>Reliable<br>& Durable</span></div>
+    </div>
+
+    <a href="#products" class="keeper-fifth-button">
+      Explore Our Range →
+    </a>
+  </div>
+
+  <div class="keeper-fifth-categories">
+    <span>Homes</span>
+    <span>Offices</span>
+    <span>Industries</span>
+    <span>Hospitals & Clinics</span>
+    <span>Hotels & Restaurants</span>
+    <span>Schools & Colleges</span>
+    <span>Beverage & Food Industry</span>
+  </div>
 </div>
 
 </section>
@@ -1019,11 +1132,12 @@ const hero = document.querySelector('.hero');
 let currentSlide = 0;
 
 function showSlide(index) {
-    currentSlide = (index + 4) % 4;
+    currentSlide = (index + 5) % 5;
 
     hero.classList.toggle('show-second-slide', currentSlide === 1);
     hero.classList.toggle('show-third-slide', currentSlide === 2);
     hero.classList.toggle('show-fourth-slide', currentSlide === 3);
+    hero.classList.toggle('show-fifth-slide', currentSlide === 4);
 
     document.querySelectorAll('.hero-dot').forEach((dot, i) => {
         dot.classList.toggle('active', i === currentSlide);
