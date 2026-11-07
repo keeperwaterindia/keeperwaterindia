@@ -151,10 +151,11 @@ footer{
 
 /* KEEPER Premium Hero Design */
 .hero {
-  height: 650px;
-  position: relative;
-  overflow: hidden;
-  background: url('keeper-hero-background.png') center center / cover no-repeat;
+    height: 650px;
+    position: relative;
+    overflow: hidden;
+    background: url('keeper-hero-background.png') center center / cover no-repeat;
+    touch-action: pan-y;
 }
 
 .keeper-hero-layout {
@@ -526,8 +527,8 @@ footer{
 .keeper-third-products {
     position: absolute;
     right: 2%;
-    bottom: 5%;
-    width: 50%;
+    bottom: 10%;
+    width: 46%;
     height: 75%;
     display: flex;
     align-items: center;
@@ -830,16 +831,13 @@ setInterval(() => {
     showSlide(currentSlide + 1);
 }, 5000);
 let touchStartX = 0;
-let touchEndX = 0;
 
-hero.addEventListener('touchstart', function(e) {
-    touchStartX = e.changedTouches[0].screenX;
+hero.addEventListener('pointerdown', function(e) {
+    touchStartX = e.clientX;
 }, { passive: true });
 
-hero.addEventListener('touchend', function(e) {
-    touchEndX = e.changedTouches[0].screenX;
-
-    const swipeDistance = touchEndX - touchStartX;
+hero.addEventListener('pointerup', function(e) {
+    const swipeDistance = e.clientX - touchStartX;
 
     if (Math.abs(swipeDistance) > 50) {
         if (swipeDistance < 0) {
@@ -848,7 +846,13 @@ hero.addEventListener('touchend', function(e) {
             changeHeroSlide(-1);
         }
     }
+
+    touchStartX = 0;
 }, { passive: true });
+
+hero.addEventListener('pointercancel', function() {
+    touchStartX = 0;
+});
 
 </script>
 
