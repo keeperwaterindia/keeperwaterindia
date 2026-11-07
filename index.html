@@ -148,6 +148,209 @@ footer{
   .hero{height:500px}
   .hero-content{bottom:45px;left:5%}
 }
+
+/* KEEPER Premium Hero Design */
+.hero {
+  height: 650px;
+  position: relative;
+  overflow: hidden;
+  background: url('keeper-hero-background.png') center center / cover no-repeat;
+}
+
+.keeper-hero-layout {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 45px 5%;
+}
+
+.keeper-hero-text {
+  width: 43%;
+  color: #49200f;
+}
+
+.keeper-hero-text .eyebrow {
+  font-size: 16px;
+  letter-spacing: 4px;
+  font-weight: bold;
+}
+
+.keeper-hero-text h1 {
+  font-size: clamp(38px, 4vw, 66px);
+  line-height: 1.08;
+  margin: 18px 0;
+  font-style: italic;
+}
+
+.keeper-hero-text p {
+  font-size: 22px;
+  line-height: 1.4;
+}
+
+.keeper-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin: 35px 0;
+  font-weight: bold;
+}
+
+.keeper-feature {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.keeper-feature span {
+  color: #fff;
+  background: #813909;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.keeper-hero-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.keeper-hero-buttons a {
+  padding: 14px 22px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.keeper-primary {
+  color: white;
+  background: linear-gradient(#a9510a, #512005);
+}
+
+.keeper-secondary {
+  color: #512005;
+  border: 1px solid #512005;
+}
+
+.keeper-products {
+  position: absolute;
+  right: 1%;
+  bottom: 7%;
+  width: 57%;
+  height: 75%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.keeper-products img {
+  width: 17%;
+  max-height: 90%;
+  object-fit: contain;
+  margin-left: -2%;
+  filter: drop-shadow(0 10px 8px rgba(0,0,0,.22));
+}
+
+.keeper-products img:nth-child(1),
+.keeper-products img:nth-child(6) {
+  width: 19%;
+}
+
+.keeper-products img:nth-child(3) {
+  width: 16%;
+}
+
+@media(max-width:850px) {
+  .hero { height: 650px; background-position: center; }
+  .keeper-hero-layout { padding: 25px 5%; align-items: flex-start; }
+  .keeper-hero-text { width: 100%; }
+  .keeper-hero-text h1 { font-size: 35px; }
+  .keeper-hero-text p { font-size: 16px; }
+  .keeper-hero-text .eyebrow { font-size: 11px; }
+  .keeper-features { gap: 12px; margin: 20px 0; font-size: 12px; max-width: 340px; }
+  .keeper-feature span { width: 30px; height: 30px; }
+  .keeper-hero-buttons a { padding: 10px 15px; font-size: 12px; }
+  .keeper-products { width: 98%; height: 38%; right: 1%; bottom: 4%; }
+}
+
+/* KEEPER SECOND HERO SLIDE */
+
+.hero {
+  transition: background-image 0.6s ease;
+}
+
+.hero.show-second-slide {
+  background-image: url('keeper-hero-slide-2-bg.png');
+  background-position: center;
+  background-size: cover;
+}
+
+.hero.show-second-slide .keeper-hero-layout {
+  display: none;
+}
+
+.keeper-second-slide {
+  display: none;
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 45px 8%;
+  box-sizing: border-box;
+  color: #49200f;
+}
+
+.hero.show-second-slide .keeper-second-slide {
+  display: flex;
+}
+
+.keeper-second-text {
+  width: 48%;
+}
+
+.keeper-second-text h1 {
+  font-size: clamp(32px, 4vw, 55px);
+  margin: 15px 0;
+  color: #49200f;
+}
+
+.keeper-second-text p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.keeper-second-product {
+  width: 42%;
+  height: 90%;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 10px rgba(0,0,0,.2));
+}
+
+@media (max-width: 850px) {
+  .keeper-second-slide {
+    padding: 25px 5%;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .keeper-second-text {
+    width: 100%;
+  }
+
+  .keeper-second-product {
+    width: 80%;
+    height: 45%;
+  }
+}
+
 </style>
 </head>
 
@@ -155,8 +358,7 @@ footer{
 
 <header>
   <a href="#" class="logo">
-    KEEPER
-    <span>APPLIANCES INDIA</span>
+   <img src="keeper-logo.jpeg" alt="KEEPER Choice of Every Home" style="width:190px;height:auto;display:block;">
   </a>
 
   <nav>
@@ -171,30 +373,83 @@ footer{
   <a class="demo" href="#contact">Book a Demo →</a>
 </header>
 
+
 <section class="hero">
+  <div class="keeper-hero-layout">
 
-  <div class="slide active" id="slide1"
-       style="background-image:url('hero-slide-1.png')">
-    <div class="hero-content">
-      <h1>KEEPER APPLIANCES INDIA</h1>
-      <p>Choice of Every Home</p>
+    <div class="keeper-hero-text">
+      <div class="eyebrow">KEEPER APPLIANCES INDIA</div>
+
+      <h1>Choice of Every Home</h1>
+
+      <p>Advanced Water Appliances for<br>
+      a Healthier &amp; Better Lifestyle</p>
+
+      <div class="gold-line"></div>
+
+      <div class="keeper-features">
+        <div class="keeper-feature">
+          <span>💧</span> Pure &amp; Safe Water
+        </div>
+        <div class="keeper-feature">
+          <span>✦</span> Advanced Technology
+        </div>
+        <div class="keeper-feature">
+          <span>🌿</span> Healthier Lifestyle
+        </div>
+        <div class="keeper-feature">
+          <span>✓</span> Reliable Performance
+        </div>
+      </div>
+
+      <div class="keeper-hero-buttons">
+        <a class="keeper-primary" href="#products">Explore Our Range →</a>
+        <a class="keeper-secondary" href="#technology">▶ Watch Demo</a>
+      </div>
+    </div>
+
+    <div class="keeper-products">
+      <img src="keeper-white-alkaline-ro-purifier.png" alt="KEEPER Alkaline RO Purifier">
+      <img src="keeper-black-digital-ro-purifier.png" alt="KEEPER Digital RO Purifier">
+      <img src="keeper-paramount-hot-water.png" alt="KEEPER Paramount Hot Water">
+      <img src="keeper-orange-water-purifier.png" alt="KEEPER Water Purifier">
+      <img src="keeper-pancha-ionizer.png" alt="KEEPER Pancha Ionizer">
+      <img src="keeper-vaidik-ionizer.png" alt="KEEPER Vaidik Ionizer">
+    </div>
+
+  </div>
+  
+<div class="keeper-second-slide">
+  <div class="keeper-second-text">
+    <div class="eyebrow">KEEPER APPLIANCES INDIA</div>
+
+    <h1>PANCH Alkaline Water Ionizer</h1>
+
+    <p>
+      Ionized Alkaline Water for
+      Better Health &amp; Wellness
+    </p>
+
+    <div class="gold-line"></div>
+
+    <div class="keeper-hero-buttons">
+      <a class="keeper-primary" href="#products">
+        Explore PANCH →
+      </a>
+      <a class="keeper-secondary" href="#contact">
+        Book a Demo
+      </a>
     </div>
   </div>
 
-  <div class="slide" id="slide2"
-       style="background-image:url('hero-slide-2.png')">
-    <div class="hero-content">
-      <h1>Pure Water. Better Living.</h1>
-      <p>Discover the KEEPER range.</p>
-    </div>
-  </div>
-
-  <div class="dots">
-    <button class="dot active" onclick="showSlide(0)"></button>
-    <button class="dot" onclick="showSlide(1)"></button>
-  </div>
+  <img
+    class="keeper-second-product"
+    src="keeper-pancha-ionizer-slide2.png"
+    alt="KEEPER PANCH Alkaline Water Ionizer">
+</div>
 
 </section>
+
 
 <section class="section" id="products">
   <h2>Explore Our Products</h2>
@@ -239,21 +494,16 @@ footer{
 </footer>
 
 <script>
-let currentSlide=0;
-const slides=document.querySelectorAll('.slide');
-const dots=document.querySelectorAll('.dot');
 
-function showSlide(index){
-  currentSlide=index;
-  slides.forEach((slide,i)=>{
-    slide.classList.toggle('active',i===index);
-    dots[i].classList.toggle('active',i===index);
-  });
-}
+const hero = document.querySelector('.hero');
 
-setInterval(()=>{
-  showSlide((currentSlide+1)%slides.length);
-},5000);
+let showSecond = false;
+
+setInterval(() => {
+  showSecond = !showSecond;
+  hero.classList.toggle('show-second-slide', showSecond);
+}, 5000);
+
 </script>
 
 </body>
