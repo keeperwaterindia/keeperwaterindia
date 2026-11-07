@@ -1,0 +1,260 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KEEPER APPLIANCES INDIA | Choice of Every Home</title>
+<meta name="description" content="Discover KEEPER water purifiers, alkaline water ionizers and complete water solutions.">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#061b38;
+  --blue:#0b3470;
+  --gold:#dcae52;
+  --white:#fff;
+}
+body{
+  font-family:Arial,sans-serif;
+  background:#fff;
+  color:#17243a;
+}
+header{
+  height:82px;
+  padding:0 5%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:#fff;
+  box-shadow:0 2px 15px #00000012;
+  position:relative;
+  z-index:10;
+}
+.logo{
+  font-size:23px;
+  font-weight:800;
+  color:#c51f27;
+  text-decoration:none;
+}
+.logo span{
+  display:block;
+  color:#102c65;
+  font-size:12px;
+  letter-spacing:2px;
+}
+nav{
+  display:flex;
+  align-items:center;
+  gap:28px;
+}
+nav a{
+  color:#17243a;
+  text-decoration:none;
+  font-size:14px;
+  font-weight:600;
+}
+nav a:hover{color:#bd8730}
+.demo{
+  background:var(--navy);
+  color:#fff;
+  padding:13px 23px;
+  border-radius:30px;
+  text-decoration:none;
+  font-size:14px;
+}
+.hero{
+  height:610px;
+  position:relative;
+  overflow:hidden;
+  background:var(--navy);
+}
+.slide{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  transition:opacity .8s ease;
+  background-size:cover;
+  background-position:center;
+}
+.slide.active{opacity:1}
+.slide:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,#061b38aa,transparent 75%);
+  pointer-events:none;
+}
+.hero-content{
+  position:absolute;
+  z-index:2;
+  left:7%;
+  bottom:45px;
+  color:#fff;
+}
+.hero-content h1{
+  font-size:clamp(28px,4vw,48px);
+  margin-bottom:12px;
+}
+.hero-content p{
+  font-size:17px;
+  color:#eee;
+}
+.dots{
+  position:absolute;
+  z-index:3;
+  bottom:20px;
+  right:7%;
+  display:flex;
+  gap:10px;
+}
+.dot{
+  width:10px;height:10px;
+  border-radius:50%;
+  border:1px solid white;
+  background:transparent;
+  cursor:pointer;
+}
+.dot.active{background:var(--gold)}
+.section{
+  padding:75px 6%;
+  text-align:center;
+}
+.section h2{
+  color:var(--navy);
+  font-size:32px;
+  margin-bottom:15px;
+}
+.section p{
+  color:#68758a;
+  line-height:1.7;
+}
+.gold-line{
+  width:65px;height:3px;
+  background:var(--gold);
+  margin:18px auto;
+}
+footer{
+  background:var(--navy);
+  color:white;
+  text-align:center;
+  padding:30px 15px;
+}
+@media(max-width:850px){
+  header{height:auto;min-height:75px;padding:15px 5%;flex-wrap:wrap}
+  nav{width:100%;overflow-x:auto;gap:20px;padding-top:16px}
+  nav a{white-space:nowrap;font-size:12px}
+  .demo{font-size:12px;padding:10px 15px}
+  .hero{height:500px}
+  .hero-content{bottom:45px;left:5%}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="#" class="logo">
+    KEEPER
+    <span>APPLIANCES INDIA</span>
+  </a>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#products">Products</a>
+    <a href="#technology">Technology</a>
+    <a href="#service">Service & Support</a>
+    <a href="#about">About Us</a>
+    <a href="#dealer">Become a Dealer</a>
+  </nav>
+
+  <a class="demo" href="#contact">Book a Demo →</a>
+</header>
+
+<section class="hero">
+
+  <div class="slide active" id="slide1"
+       style="background-image:url('hero-slide-1.png')">
+    <div class="hero-content">
+      <h1>KEEPER APPLIANCES INDIA</h1>
+      <p>Choice of Every Home</p>
+    </div>
+  </div>
+
+  <div class="slide" id="slide2"
+       style="background-image:url('hero-slide-2.png')">
+    <div class="hero-content">
+      <h1>Pure Water. Better Living.</h1>
+      <p>Discover the KEEPER range.</p>
+    </div>
+  </div>
+
+  <div class="dots">
+    <button class="dot active" onclick="showSlide(0)"></button>
+    <button class="dot" onclick="showSlide(1)"></button>
+  </div>
+
+</section>
+
+<section class="section" id="products">
+  <h2>Explore Our Products</h2>
+  <div class="gold-line"></div>
+  <p>Complete water solutions for every home and business.</p>
+</section>
+
+<section class="section" id="technology">
+  <h2>Technology & Innovation</h2>
+  <div class="gold-line"></div>
+  <p>Discover our water purification technologies.</p>
+</section>
+
+<section class="section" id="service">
+  <h2>Service & Support</h2>
+  <div class="gold-line"></div>
+  <p>We are here to support your water solutions.</p>
+</section>
+
+<section class="section" id="about">
+  <h2>About KEEPER</h2>
+  <div class="gold-line"></div>
+  <p>KEEPER APPLIANCES INDIA – Choice of Every Home.</p>
+</section>
+
+<section class="section" id="dealer">
+  <h2>Become a Dealer</h2>
+  <div class="gold-line"></div>
+  <p>Grow with KEEPER APPLIANCES INDIA.</p>
+</section>
+
+<section class="section" id="contact">
+  <h2>Contact Us</h2>
+  <div class="gold-line"></div>
+  <p>Connect with our team for product enquiries and demonstrations.</p>
+</section>
+
+<footer>
+  <h3>KEEPER APPLIANCES INDIA</h3>
+  <p style="color:#ddd;margin-top:10px">Choice of Every Home</p>
+  <p style="color:#aaa;margin-top:15px">© 2026 KEEPER APPLIANCES INDIA. All Rights Reserved.</p>
+</footer>
+
+<script>
+let currentSlide=0;
+const slides=document.querySelectorAll('.slide');
+const dots=document.querySelectorAll('.dot');
+
+function showSlide(index){
+  currentSlide=index;
+  slides.forEach((slide,i)=>{
+    slide.classList.toggle('active',i===index);
+    dots[i].classList.toggle('active',i===index);
+  });
+}
+
+setInterval(()=>{
+  showSlide((currentSlide+1)%slides.length);
+},5000);
+</script>
+
+</body>
+</html>
