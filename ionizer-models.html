@@ -1,0 +1,296 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keeper Alkaline Water Ionizer Models</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #442515;
+    background: #f8f2e8;
+}
+
+.models-page {
+    min-height: 100vh;
+    padding: 35px 5% 70px;
+    background:
+        linear-gradient(rgba(255,250,240,.88),rgba(255,250,240,.88)),
+        url('keeper-ionizer-models-background.png') center top / cover no-repeat;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 12px 22px;
+    border: 1px solid #c49a50;
+    border-radius: 30px;
+    color: #603719;
+    text-decoration: none;
+    font-weight: 700;
+    background: #fffaf0;
+    box-shadow: 0 4px 12px rgba(70,35,15,.12);
+}
+
+.brand-heading {
+    text-align: center;
+    margin: 25px auto 12px;
+}
+
+.brand-heading h1 {
+    font-size: 38px;
+    letter-spacing: 5px;
+    color: #572b12;
+}
+
+.brand-heading p {
+    color: #9b713b;
+    font-size: 13px;
+    letter-spacing: 3px;
+    margin-top: 5px;
+}
+
+.section-heading {
+    text-align: center;
+    margin: 35px 0 40px;
+}
+
+.section-heading h2 {
+    font-size: 34px;
+    color: #542b16;
+}
+
+.section-heading p {
+    margin-top: 10px;
+    color: #806344;
+}
+
+.models-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+    max-width: 1250px;
+    margin: auto;
+}
+
+.model-card {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    padding: 22px 18px 28px;
+    border: 1.5px solid #d0ad70;
+    border-radius: 24px;
+    background: rgba(255,250,240,.94);
+    box-shadow: 0 10px 28px rgba(68,37,21,.15);
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.model-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 16px 35px rgba(68,37,21,.22);
+}
+
+.model-card::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 9px;
+    background: linear-gradient(90deg,#704019,#e2bd73,#704019);
+}
+
+.model-image {
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.model-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.model-card h3 {
+    font-size: 23px;
+    color: #542b16;
+    margin: 12px 0 8px;
+}
+
+.model-card .description {
+    color: #806344;
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 44px;
+}
+
+.plate-label {
+    margin: 18px 0 10px;
+    color: #754a24;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.plate-options {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-bottom: 22px;
+}
+
+.plate-options span {
+    padding: 9px 13px;
+    border: 1px solid #c49a50;
+    border-radius: 22px;
+    color: #603719;
+    background: #fff7e7;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.details-button {
+    display: inline-block;
+    padding: 13px 28px;
+    border: 2px solid #d6ad62;
+    border-radius: 30px;
+    background: linear-gradient(180deg,#a66a2d,#57230e);
+    color: #fff8e8;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.details-button:hover {
+    background: linear-gradient(180deg,#e5bd70,#a66a2d);
+    color: #321606;
+    transform: translateY(-3px);
+}
+
+@media(max-width: 850px) {
+    .models-grid {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+    }
+}
+
+@media(max-width: 560px) {
+    .models-page {
+        padding: 22px 4% 45px;
+    }
+
+    .models-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .model-image {
+        height: 270px;
+    }
+
+    .brand-heading h1 {
+        font-size: 30px;
+    }
+
+    .section-heading h2 {
+        font-size: 27px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main class="models-page">
+
+    <a href="index.html#products" class="back-button">
+        ← Back to Products
+    </a>
+
+    <header class="brand-heading">
+        <h1>KEEPER</h1>
+        <p>WATER ENGINEERS</p>
+    </header>
+
+    <section class="section-heading">
+        <h2>Our Ionizer Models</h2>
+        <p>Explore Our Premium Alkaline Water Ionizer Range</p>
+    </section>
+
+    <section class="models-grid">
+
+        <!-- PANCH SERIES -->
+        <article class="model-card">
+            <div class="model-image">
+                <img src="keeper-pancha-ionizer.png"
+                     alt="Keeper Panch Series Ionizer">
+            </div>
+            <h3>KEEPER Panch Series</h3>
+            <p class="description">
+                Premium alkaline water ionizer for your home.
+            </p>
+            <div class="plate-label">AVAILABLE PLATE OPTIONS</div>
+            <div class="plate-options">
+                <span>7 Plate</span>
+                <span>9 Plate</span>
+                <span>11 Plate</span>
+            </div>
+            <a href="#" class="details-button">View Details →</a>
+        </article>
+
+        <!-- TATTVA SERIES -->
+        <article class="model-card">
+            <div class="model-image">
+                <img src="keeper-tattva-series.png"
+                     alt="Keeper Tattva Series Ionizer">
+            </div>
+            <h3>KEEPER Tattva Series</h3>
+            <p class="description">
+                Elegant design with advanced water ionization technology.
+            </p>
+            <div class="plate-label">AVAILABLE PLATE OPTIONS</div>
+            <div class="plate-options">
+                <span>5 Plate</span>
+                <span>7 Plate</span>
+                <span>9 Plate</span>
+            </div>
+            <a href="#" class="details-button">View Details →</a>
+        </article>
+
+        <!-- VAIDIK SERIES -->
+        <article class="model-card">
+            <div class="model-image">
+                <img src="keeper-vaidik-ionizer.png"
+                     alt="Keeper Vaidik Series Ionizer">
+            </div>
+            <h3>KEEPER Vaidik Series</h3>
+            <p class="description">
+                Premium water ionizer designed for everyday use.
+            </p>
+            <div class="plate-label">AVAILABLE PLATE OPTIONS</div>
+            <div class="plate-options">
+                <span>7 Plate</span>
+                <span>9 Plate</span>
+                <span>11 Plate</span>
+            </div>
+            <a href="#" class="details-button">View Details →</a>
+        </article>
+
+    </section>
+
+</main>
+
+</body>
+</html>
