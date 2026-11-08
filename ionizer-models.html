@@ -92,14 +92,29 @@ body {
     
 .section-heading {
     text-align: center;
-    margin: 150px 0 40px;
+    margin: 8px 0 20px;
 }
 
 .section-heading h2 {
     font-size: 34px;
     color: #542b16;
+    display: flex;
+align-items: center;
+justify-content: center;
+gap: 22px;
+}
+.section-heading h2::before,
+.section-heading h2::after {
+    content: "";
+    width: 110px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #b8873b);
 }
 
+.section-heading h2::after {
+    background: linear-gradient(90deg, #b8873b, transparent);
+}
+    
 .section-heading p {
     margin-top: 10px;
     color: #806344;
@@ -110,7 +125,7 @@ body {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 28px;
     max-width: 1250px;
-    margin: auto;
+    margin: 0 auto;
 }
 
 .model-card {
