@@ -1820,15 +1820,7 @@ function openProductPopup(category) {
     document.body.style.overflow = 'hidden';
 }
 
-    document.getElementById('keeperPopupTitle').textContent = category;
-    const image = document.getElementById('keeperPopupImage');
-    image.src = keeperProductImages[category] || "";
-    image.style.display = keeperProductImages[category] ? "block" : "none";
-
-    popup.classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
-
+   
 function closeProductPopup() {
     const popup = document.getElementById('keeperProductPopup');
     if (popup) popup.classList.remove('active');
