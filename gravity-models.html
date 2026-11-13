@@ -48,8 +48,23 @@ body {
     font-size: clamp(30px, 4vw, 48px);
     color: #572b13;
     margin-bottom: 10px;
+    display: flex;
+align-items: center;
+justify-content: center;
+gap: 22px;
+}
+.page-heading h1::before,
+.page-heading h1::after {
+    content: "";
+    width: 90px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #b8873b);
 }
 
+.page-heading h1::after {
+    background: linear-gradient(90deg, #b8873b, transparent);
+}
+    
 .page-heading p {
     font-size: 18px;
     color: #806344;
