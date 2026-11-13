@@ -70,7 +70,26 @@ body {
     font-size: clamp(30px,4vw,48px);
     font-weight: 800;
 }
+.page-heading h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+}
 
+.page-heading h1::before,
+.page-heading h1::after {
+    content: "";
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #b8873b);
+    display: inline-block;
+}
+
+.page-heading h1::after {
+    background: linear-gradient(90deg, #b8873b, transparent);
+}
+    
 .page-heading p {
     margin-top: 10px;
     color: #68452f;
@@ -238,7 +257,6 @@ body {
 </header>
 
 <section class="page-heading">
-    <h1>Commercial Water Coolers</h1>
    <h1><span>Commercial Water Coolers</span></h1>
     <p>Powerful Cooling • Stainless Steel Body • Reliable Performance</p>
 </section>
