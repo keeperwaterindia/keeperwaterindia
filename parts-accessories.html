@@ -1,0 +1,424 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>KEEPER Parts & Accessories</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #4b2b19;
+    background: #f8f2e8;
+}
+
+.parts-page {
+    min-height: 100vh;
+    padding: 28px 3% 55px;
+    background:
+        linear-gradient(rgba(255,250,240,.12),rgba(255,250,240,.12)),
+        url('keeper-parts-accessories-background.png.jpeg') center top / cover no-repeat;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 35px;
+}
+
+.brand {
+    font-size: 23px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #572b16;
+}
+
+.brand span {
+    display: block;
+    margin-top: 5px;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #a77a37;
+}
+
+.back-button {
+    text-decoration: none;
+    color: #fff8e9;
+    background: linear-gradient(135deg,#a87937,#572b16);
+    padding: 12px 21px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.heading {
+    text-align: center;
+    margin: 10px auto 35px;
+}
+
+.heading h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
+    color: #572b16;
+    font-size: clamp(28px,3.5vw,44px);
+}
+
+.heading h1::before,
+.heading h1::after {
+    content: "";
+    width: 90px;
+    height: 2px;
+    background: linear-gradient(90deg,transparent,#b8873b);
+}
+
+.heading h1::after {
+    background: linear-gradient(90deg,#b8873b,transparent);
+}
+
+.heading p {
+    margin-top: 12px;
+    color: #806344;
+    font-size: 16px;
+}
+
+.gold-line {
+    width: 75px;
+    height: 2px;
+    margin: 17px auto;
+    background: #bd914b;
+}
+
+.parts-grid {
+    display: grid;
+    grid-template-columns: repeat(7,minmax(0,1fr));
+    gap: 18px;
+    max-width: 1600px;
+    margin: auto;
+}
+
+.part-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 13px 10px 15px;
+    text-align: center;
+    border: 1px solid #c7a36a;
+    border-radius: 17px;
+    background: rgba(255,250,240,.96);
+    box-shadow: 0 7px 18px rgba(75,43,25,.13);
+    transition: .25s ease;
+}
+
+.part-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 23px rgba(75,43,25,.2);
+}
+
+.part-image {
+    width: 100%;
+    height: 145px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.part-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.part-card h2 {
+    color: #572b16;
+    font-size: 15px;
+    line-height: 1.35;
+    min-height: 40px;
+    margin-bottom: 7px;
+}
+
+.part-card p {
+    color: #806344;
+    font-size: 12px;
+    line-height: 1.45;
+    margin-bottom: 12px;
+    flex-grow: 1;
+}
+
+.view-button {
+    border: 1px solid #bd914b;
+    border-radius: 25px;
+    padding: 9px 7px;
+    color: #fff8e9;
+    background: linear-gradient(135deg,#a87937,#572b16);
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.part-details {
+    display: none;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 10px;
+    background: #f1e5d3;
+    color: #63452e;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.part-details.show {
+    display: block;
+}
+
+.footer {
+    margin-top: 40px;
+    text-align: center;
+    color: #806344;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+@media(max-width:1200px) {
+    .parts-grid {
+        grid-template-columns: repeat(4,minmax(0,1fr));
+    }
+}
+
+@media(max-width:750px) {
+    .parts-grid {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+        gap: 13px;
+    }
+
+    .part-image {
+        height: 155px;
+    }
+
+    .heading h1::before,
+    .heading h1::after {
+        width: 35px;
+    }
+}
+
+@media(max-width:420px) {
+    .parts-page {
+        padding: 18px 10px 35px;
+    }
+
+    .brand {
+        font-size: 16px;
+    }
+
+    .back-button {
+        padding: 9px 12px;
+        font-size: 11px;
+    }
+
+    .part-image {
+        height: 130px;
+    }
+
+    .part-card {
+        padding: 10px 8px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main class="parts-page">
+
+<header class="header">
+    <div class="brand">
+        KEEPER APPLIANCES INDIA
+        <span>PARTS & ACCESSORIES</span>
+    </div>
+
+    <a href="index.html#products" class="back-button">
+        ← Back to Products
+    </a>
+</header>
+
+<section class="heading">
+    <h1>Parts & Accessories</h1>
+    <div class="gold-line"></div>
+    <p>Quality Components for Reliable Water Purification</p>
+</section>
+
+<section class="parts-grid">
+
+<article class="part-card">
+    <div class="part-image">
+        <img src="keeper-ro-booster-pump.png.jpeg" alt="RO Booster Pump">
+    </div>
+    <h2>RO Booster Pump</h2>
+    <p>High-pressure RO pump assembly</p>
+    <button class="view-button" onclick="toggleDetails(this)">View Details →</button>
+    <div class="part-details">KEEPER RO Booster Pump</div>
+</article>
+
+<article class="part-card">
+    <div class="part-image">
+        <img src="keeper-ro-membrane.png.jpeg" alt="RO Membrane">
+    </div>
+    <h2>RO Membrane</h2>
+    <p>Reverse osmosis membrane cartridge</p>
+    <button class="view-button" onclick="toggleDetails(this)">View Details →</button>
+    <div class="part-details">KEEPER RO Membrane</div>
+</article>
+
+<article class="part-card">
+    <div class="part-image">
+        <img src="keeper-inline-sediment-filter.png.jpeg" alt="Inline Sediment Filter">
+    </div>
+    <h2>Inline Sediment Filter</h2>
+    <p>Inline sediment filtration cartridge</p>
+    <button class="view-button" onclick="toggleDetails(this)">View Details →</button>
+    <div class="part-details">KEEPER Inline Sediment Filter</div>
+</article>
+
+<article class="part-card">
+    <div class="part-image">
+        <img src="keeper-inline-carbon-filter.png.jpeg" alt="Inline Carbon Filter">
+    </div>
+    <h2>Inline Carbon Filter</h2>
+    <p>Inline carbon filtration cartridge</p>
+    <button class="view-button" onclick="toggleDetails(this)">View Details →</button>
+    <div class="part-details">KEEPER Inline Carbon Filter</div>
+</article>
+
+<article class="part-card">
+    <div class="part-image">
+        <img src="keeper-ro-membrane-housing.png.jpeg" alt="RO Membrane Housing">
+    </div>
+    <h2>RO Membrane Housing</h2>
+    <p>Membrane housing assembly</p>
+    <button class="view-button" onclick="toggleDetails(this)">View Details →</button>
+    <div class="part-details">KEEPER RO Membrane Housing</div>
+</article>
+
+<article class="part-card">
+    <div class="part-image">
+        <img src="keeper-ro-solenoid-valve.png.jpeg" alt="RO Solenoid Valve">
+    </div>
+    <h2>RO Solenoid Valve</h2>
+    <p>Automatic water control valve</p>
+    <button class="view-button" onclick="toggleDetails(this)">View Details →</button>
+    <div class="part-details">KEEPER RO Solenoid Valve</div>
+</article>
+
+<article class="part-card">
+    <div class="part-image">
+        <img src="keeper-ro-smps-power-supply.png.jpeg" alt="RO SMPS Power Supply">
+    </div>
+    <h2>RO SMPS Power Supply</h2>
+    <p>Power supply for RO systems</p>
+    <button class="view-button" onclick="toggleDetails(this)">View Details →</button>
+    <div class="part-details">KEEPER RO SMPS Power Supply</div>
+</article>
+
+<article class="part-card">
+    <div class="part-image">
+        <img src="keeper-pp-spun-filter-10-inch.png.jpeg" alt="PP Spun Filter">
+    </div>
+    <h2>PP Spun Filter 10”</h2>
+    <p>Polypropylene sediment filter</p>
+    <button class="view-button" onclick="toggleDetails(this)">View Details →</button>
+    <div class="part-details">KEEPER PP Spun Filter – 10 Inch</div>
+</article>
+
+<article class="part-card">
+    <div class="part-image">
+        <img src="keeper-aaa-plus-alkaline-filter.png.jpeg" alt="AAA Plus Alkaline Filter">
+    </div>
+    <h2>AAA+ Alkaline Filter</h2>
+    <p>Alkaline filtration cartridge</p>
+    <button class="view-button" onclick="toggleDetails(this)">View Details →</button>
+    <div class="part-details">KEEPER AAA+ Alkaline Filter</div>
+</article>
+
+<article class="part-card">
+    <div class="part-image">
+        <img src="keeper-pp-yarn-wound-filter-9-inch.png.jpeg" alt="PP Yarn Wound Filter">
+    </div>
+    <h2>PP Yarn Wound Filter</h2>
+    <p>Yarn wound sediment cartridge</p>
+    <button class="view-button" onclick="toggleDetails(this)">View Details →</button>
+    <div class="part-details">KEEPER PP Yarn Wound Filter – 9 Inch</div>
+</article>
+
+<article class="part-card">
+    <div class="part-image">
+        <img src="keeper-ro-inlet-valve-nipple.png.jpeg" alt="RO Inlet Valve">
+    </div>
+    <h2>RO Inlet Valve & Nipple</h2>
+    <p>Water inlet valve components</p>
+    <button class="view-button" onclick="toggleDetails(this)">View Details →</button>
+    <div class="part-details">KEEPER RO Inlet Valve & Nipple</div>
+</article>
+
+<article class="part-card">
+    <div class="part-image">
+        <img src="keeper-pp-spun-filter-housing.png.jpeg" alt="PP Spun Filter Housing">
+    </div>
+    <h2>PP Spun Filter Housing</h2>
+    <p>Filter housing and cap assembly</p>
+    <button class="view-button" onclick="toggleDetails(this)">View Details →</button>
+    <div class="part-details">KEEPER PP Spun Filter Housing</div>
+</article>
+
+<article class="part-card">
+    <div class="part-image">
+        <img src="keeper-pp-spun-filter-cartridges.png.jpeg" alt="PP Spun Filter Cartridges">
+    </div>
+    <h2>PP Spun Filter Cartridges</h2>
+    <p>PP spun filter cartridge set</p>
+    <button class="view-button" onclick="toggleDetails(this)">View Details →</button>
+    <div class="part-details">KEEPER PP Spun Filter Cartridges</div>
+</article>
+
+<article class="part-card">
+    <div class="part-image">
+        <img src="keeper-pp-spun-filter-cartridges-10-7.5-6.png.jpeg" alt="PP Spun Filters 10 7.5 and 6 Inch">
+    </div>
+    <h2>PP Spun Filters – 10”, 7.5”, 6”</h2>
+    <p>Available in three filter sizes</p>
+    <button class="view-button" onclick="toggleDetails(this)">View Details →</button>
+    <div class="part-details">KEEPER PP Spun Filters – 10, 7.5 and 6 Inch</div>
+</article>
+
+</section>
+
+<footer class="footer">
+    KEEPER APPLIANCES INDIA • QUALITY • PERFORMANCE • RELIABILITY
+</footer>
+
+</main>
+
+<script>
+function toggleDetails(button) {
+    const details = button.nextElementSibling;
+    details.classList.toggle("show");
+
+    button.textContent = details.classList.contains("show")
+        ? "Hide Details ↑"
+        : "View Details →";
+}
+</script>
+
+</body>
+</html>
