@@ -1851,9 +1851,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const originalCards = Array.from(slider.children);
 
-    originalCards.forEach(card => {
-        slider.appendChild(card.cloneNode(true));
-    });
 
     let paused = false;
     let dragging = false;
@@ -1888,23 +1885,19 @@ document.addEventListener("DOMContentLoaded", function () {
         paused = slider.matches(":hover");
     });
 
-    function animate(time) {
-        if (!lastTime) lastTime = time;
-        const delta = Math.min((time - lastTime) / 1000, 0.05);
-        lastTime = time;
+   let autoSlideTimer = setInterval(() => {
+    const card = slider.querySelector(".keeper-product-card");
+    if (!card) return;
 
-        if (!paused && !dragging) {
-            slider.scrollLeft += speed * delta;
+    const gap = 28;
+    const step = card.getBoundingClientRect().width + gap;
 
-            if (slider.scrollLeft >= slider.scrollWidth / 2) {
-                slider.scrollLeft = 0;
-            }
-        }
-
-        requestAnimationFrame(animate);
+    if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 5) {
+        slider.scrollTo({ left: 0, behavior: "smooth" });
+    } else {
+        slider.scrollBy({ left: step, behavior: "smooth" });
     }
-
-    requestAnimationFrame(animate);
+}, 5000);
 });
 </script>
 
