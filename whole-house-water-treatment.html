@@ -1,0 +1,456 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KEEPER Whole House Water Treatment</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #4b2b19;
+    background: #f8f2e8;
+}
+
+.page {
+    min-height: 100vh;
+    padding: 25px 3% 35px;
+    background:
+        linear-gradient(rgba(255,250,240,.12),rgba(255,250,240,.12)),
+        url('whole-house-water-treatment-background.png.jpeg')
+        center center / cover no-repeat;
+}
+
+.header {
+    max-width: 1500px;
+    margin: 0 auto 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.brand {
+    color: #572b16;
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.brand span {
+    display: block;
+    margin-top: 5px;
+    color: #a87937;
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+.back-button {
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(135deg,#a87937,#572b16);
+    padding: 12px 22px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.page-heading {
+    text-align: center;
+    margin: 10px auto 35px;
+}
+
+.page-heading h1 {
+    color: #572b16;
+    font-family: Georgia,serif;
+    font-size: clamp(30px,4vw,52px);
+    margin-bottom: 12px;
+}
+
+.page-heading p {
+    color: #806344;
+    font-size: clamp(14px,1.5vw,19px);
+    letter-spacing: 1px;
+}
+
+.gold-line {
+    width: 150px;
+    height: 3px;
+    margin: 15px auto;
+    background: linear-gradient(90deg,#8b5423,#e8c36c,#8b5423);
+    border-radius: 10px;
+}
+
+.products-grid {
+    max-width: 1500px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    gap: 25px;
+    align-items: stretch;
+}
+
+.product-card {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 25px 20px 22px;
+    border: 1.5px solid #c69a50;
+    border-radius: 28px;
+    background: rgba(255,250,241,.88);
+    box-shadow: 0 12px 30px rgba(75,43,25,.13);
+    transition: transform .3s, box-shadow .3s;
+}
+
+.product-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 18px 35px rgba(75,43,25,.2);
+}
+
+.product-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 7px;
+    background: linear-gradient(90deg,#70401e,#e6c16d,#70401e);
+}
+
+.product-tag {
+    display: inline-block;
+    align-self: center;
+    padding: 7px 18px;
+    margin: 5px 0 12px;
+    border-radius: 25px;
+    background: linear-gradient(135deg,#a87937,#572b16);
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.product-card h2 {
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #572b16;
+    font-family: Georgia,serif;
+    font-size: clamp(20px,2vw,27px);
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.product-image {
+    height: 340px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px auto 15px;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 12px rgba(0,0,0,.13));
+}
+
+.product-description {
+    color: #70563f;
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 68px;
+    margin: 0 4px 18px;
+}
+
+.feature-list {
+    text-align: left;
+    list-style: none;
+    margin: 0 0 22px;
+    padding: 15px 13px;
+    border-top: 1px solid rgba(174,126,55,.35);
+    border-bottom: 1px solid rgba(174,126,55,.35);
+    flex-grow: 1;
+}
+
+.feature-list li {
+    color: #63452e;
+    font-size: 13px;
+    line-height: 1.5;
+    padding: 5px 0;
+}
+
+.feature-list li::before {
+    content: "✦";
+    color: #a87937;
+    font-weight: bold;
+    margin-right: 9px;
+}
+
+.details-button {
+    display: inline-block;
+    width: 100%;
+    padding: 15px 18px;
+    border: 2px solid #e2bd66;
+    border-radius: 35px;
+    background: linear-gradient(135deg,#a87937,#572b16);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 13px rgba(75,43,25,.18);
+}
+
+.details-content {
+    display: none;
+    text-align: left;
+    margin-top: 15px;
+    padding: 15px;
+    border: 1px solid #c69a50;
+    border-radius: 14px;
+    background: rgba(255,250,240,.96);
+    color: #63452e;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.details-content.show {
+    display: block;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 35px;
+    color: #806344;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+@media(max-width:1000px) {
+    .products-grid {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+    }
+
+    .product-image {
+        height: 300px;
+    }
+}
+
+@media(max-width:600px) {
+    .page {
+        padding: 16px 12px 25px;
+    }
+
+    .header {
+        margin-bottom: 22px;
+    }
+
+    .brand {
+        font-size: 18px;
+    }
+
+    .brand span {
+        font-size: 9px;
+    }
+
+    .back-button {
+        padding: 10px 12px;
+        font-size: 11px;
+    }
+
+    .page-heading {
+        margin-bottom: 25px;
+    }
+
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .product-card {
+        padding: 23px 17px 19px;
+    }
+
+    .product-card h2 {
+        min-height: auto;
+        font-size: 25px;
+    }
+
+    .product-image {
+        height: 300px;
+    }
+
+    .product-description {
+        min-height: auto;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main class="page">
+
+<header class="header">
+    <div class="brand">
+        KEEPER®
+        <span>APPLIANCES INDIA</span>
+    </div>
+
+    <a href="index.html#products" class="back-button">
+        ← Back to Products
+    </a>
+</header>
+
+<section class="page-heading">
+    <h1>Whole House Water Treatment</h1>
+    <div class="gold-line"></div>
+    <p>Cleaner Water &nbsp; | &nbsp; Healthier Homes &nbsp; | &nbsp; Better Living</p>
+</section>
+
+<section class="products-grid">
+
+    <!-- SAND FILTER -->
+    <article class="product-card">
+        <span class="product-tag">WHOLE HOUSE</span>
+
+        <h2>KEEPER Sand Water Filter</h2>
+
+        <div class="product-image">
+            <img src="keeper-sand-filter.png.jpeg"
+                 alt="KEEPER Sand Water Filter">
+        </div>
+
+        <p class="product-description">
+            First line of protection for cleaner water
+            throughout your home.
+        </p>
+
+        <ul class="feature-list">
+            <li>Removes suspended solids</li>
+            <li>Improves water clarity</li>
+            <li>Protects RO systems</li>
+            <li>Low maintenance design</li>
+            <li>Automatic and semi-automatic options</li>
+        </ul>
+
+        <button class="details-button" onclick="toggleDetails('sand-details',this)">
+            View Details →
+        </button>
+
+        <div class="details-content" id="sand-details">
+            <strong>Product Configuration</strong>
+            <p>Available in multiple capacities with FRP pressure vessels.</p>
+            <p>Multiport valve supports service, backwash and rinse operations.</p>
+            <p>Flow rate: 1–3 m³/hr (as per model).</p>
+        </div>
+    </article>
+
+
+    <!-- IRON REMOVER -->
+    <article class="product-card">
+        <span class="product-tag">WHOLE HOUSE</span>
+
+        <h2>KEEPER Automatic Iron Remover</h2>
+
+        <div class="product-image">
+            <img src="keeper-automatic-iron-remover.png.jpeg"
+                 alt="KEEPER Automatic Iron Remover Filter">
+        </div>
+
+        <p class="product-description">
+            Automatic filtration solution for iron-free
+            water and healthier living.
+        </p>
+
+        <ul class="feature-list">
+            <li>Removes iron and manganese</li>
+            <li>Helps prevent stains and odour</li>
+            <li>Digital automatic control panel</li>
+            <li>Low maintenance operation</li>
+            <li>Protects pipelines and appliances</li>
+        </ul>
+
+        <button class="details-button" onclick="toggleDetails('iron-details',this)">
+            View Details →
+        </button>
+
+        <div class="details-content" id="iron-details">
+            <strong>Product Configuration</strong>
+            <p>Advanced LCD digital panel with automatic backwash and rinse cycles.</p>
+            <p>Iron removal: Up to 5 ppm (as specified in the brochure).</p>
+            <p>Capacity range: 1,000–5,000 LPH (custom options available).</p>
+        </div>
+    </article>
+
+
+    <!-- WATER SOFTENER -->
+    <article class="product-card">
+        <span class="product-tag">WHOLE HOUSE</span>
+
+        <h2>KEEPER Automatic Water Softener</h2>
+
+        <div class="product-image">
+            <img src="keeper-automatic-water-softener.png.jpeg"
+                 alt="KEEPER Automatic Water Softener">
+        </div>
+
+        <p class="product-description">
+            Enjoy soft water for your home, bathroom,
+            laundry and appliances.
+        </p>
+
+        <ul class="feature-list">
+            <li>Removes water hardness</li>
+            <li>Automatic regeneration</li>
+            <li>Digital control panel</li>
+            <li>Protects heaters and appliances</li>
+            <li>Low maintenance design</li>
+        </ul>
+
+        <button class="details-button" onclick="toggleDetails('softener-details',this)">
+            View Details →
+        </button>
+
+        <div class="details-content" id="softener-details">
+            <strong>Product Configuration</strong>
+            <p>Automatic digital control with time/flow-based regeneration.</p>
+            <p>FRP pressure vessel with high-grade food-grade ion exchange resin.</p>
+            <p>Available in multiple capacities and configurations.</p>
+        </div>
+    </article>
+
+</section>
+
+<footer class="footer">
+    KEEPER APPLIANCES INDIA
+    • QUALITY • PERFORMANCE • RELIABILITY
+</footer>
+
+</main>
+
+<script>
+function toggleDetails(id, button) {
+    const details = document.getElementById(id);
+    details.classList.toggle("show");
+
+    button.textContent = details.classList.contains("show")
+        ? "Hide Details ↑"
+        : "View Details →";
+}
+</script>
+
+</body>
+</html>
