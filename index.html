@@ -975,12 +975,27 @@ footer{
 }
 
 .keeper-products-grid {
-    display: grid;
-   grid-template-columns: repeat(5, minmax(0, 1fr));
+    display: flex;
     gap: 28px;
     max-width: 1250px;
     margin: 40px auto 0;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    padding: 10px 2px 20px;
+    cursor: grab;
 }
+
+.keeper-products-grid::-webkit-scrollbar {
+    display: none;
+}
+
+.keeper-products-grid .keeper-product-card {
+    flex: 0 0 calc((100% - 112px) / 5);
+    scroll-snap-align: start;
+}
+
 .keeper-brand-heading {
     display: flex;
     align-items: center;
@@ -1658,7 +1673,7 @@ style="position:absolute;right:20px;top:50%;transform:translateY(-50%);z-index:2
     </div>
   <div class="keeper-view-all-wrap">
     <button class="keeper-view-all-button"
-        onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
+       onclick="window.location.href='all-products.html'"
         View All Products →
     </button>
 </div>
@@ -1827,6 +1842,70 @@ function closeProductPopup() {
     document.body.style.overflow = '';
 }
   
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const slider = document.querySelector(".keeper-products-grid");
+    if (!slider) return;
+
+    const originalCards = Array.from(slider.children);
+
+    originalCards.forEach(card => {
+        slider.appendChild(card.cloneNode(true));
+    });
+
+    let paused = false;
+    let dragging = false;
+    let startX = 0;
+    let startScroll = 0;
+    let lastTime = 0;
+
+    const speed = 35;
+
+    slider.addEventListener("mouseenter", () => paused = true);
+    slider.addEventListener("mouseleave", () => {
+        if (!dragging) paused = false;
+    });
+
+    slider.addEventListener("pointerdown", function(e) {
+        paused = true;
+        dragging = true;
+        startX = e.clientX;
+        startScroll = slider.scrollLeft;
+        slider.style.cursor = "grabbing";
+    });
+
+    window.addEventListener("pointermove", function(e) {
+        if (!dragging) return;
+        slider.scrollLeft = startScroll - (e.clientX - startX);
+    });
+
+    window.addEventListener("pointerup", function() {
+        if (!dragging) return;
+        dragging = false;
+        slider.style.cursor = "grab";
+        paused = slider.matches(":hover");
+    });
+
+    function animate(time) {
+        if (!lastTime) lastTime = time;
+        const delta = Math.min((time - lastTime) / 1000, 0.05);
+        lastTime = time;
+
+        if (!paused && !dragging) {
+            slider.scrollLeft += speed * delta;
+
+            if (slider.scrollLeft >= slider.scrollWidth / 2) {
+                slider.scrollLeft = 0;
+            }
+        }
+
+        requestAnimationFrame(animate);
+    }
+
+    requestAnimationFrame(animate);
+});
 </script>
 
 </body>
