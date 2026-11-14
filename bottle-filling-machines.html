@@ -1,0 +1,455 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KEEPER Automatic Bottle Filling Machines</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #4b2b19;
+    background: #f8f2e8;
+}
+
+.page {
+    min-height: 100vh;
+    padding: 28px 3%;
+    background:
+        linear-gradient(rgba(255,250,240,.12),rgba(255,250,240,.12)),
+        url('keeper-bottle-filling-background.png.jpeg')
+        center center / cover no-repeat;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    max-width: 1550px;
+    margin: 0 auto 30px;
+}
+
+.brand {
+    color: #572b16;
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.brand span {
+    display: block;
+    margin-top: 5px;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #a87937;
+}
+
+.back-button {
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(135deg,#a87937,#572b16);
+    padding: 12px 22px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.product-section {
+    max-width: 1550px;
+    margin: auto;
+    padding: 35px 38px 28px;
+    border: 2px solid #c79b51;
+    border-radius: 35px;
+    background: rgba(255,250,241,.72);
+    box-shadow: 0 12px 35px rgba(75,43,25,.15);
+    overflow: hidden;
+    position: relative;
+}
+
+.hero {
+    display: grid;
+    grid-template-columns: 38% 62%;
+    align-items: center;
+    gap: 10px;
+    min-height: 400px;
+}
+
+.product-info {
+    padding: 15px 10px;
+    position: relative;
+    z-index: 1;
+}
+
+.product-info h1 {
+    color: #572b16;
+    font-family: Georgia, serif;
+    font-size: clamp(35px,4vw,62px);
+    line-height: 1.04;
+    margin-bottom: 18px;
+}
+
+.product-info h1 span {
+    display: block;
+    color: #9a692b;
+}
+
+.subtitle {
+    font-size: clamp(17px,1.8vw,23px);
+    line-height: 1.4;
+    color: #4b2b19;
+    margin-bottom: 25px;
+}
+
+.capacity {
+    display: inline-block;
+    padding: 14px 18px;
+    border: 2px solid #c49a4d;
+    border-radius: 35px;
+    background: rgba(255,245,222,.9);
+    color: #572b16;
+    font-size: clamp(14px,1.5vw,20px);
+    font-weight: bold;
+    line-height: 1.4;
+}
+
+.product-photo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 0;
+}
+
+.product-photo img {
+    width: 100%;
+    max-width: 850px;
+    max-height: 430px;
+    object-fit: contain;
+    filter: drop-shadow(0 12px 15px rgba(0,0,0,.17));
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    margin-top: 25px;
+    padding: 15px 0 20px;
+    border-top: 1px solid rgba(174,126,55,.35);
+}
+
+.feature {
+    text-align: center;
+    padding: 8px 10px;
+    border-right: 1px solid #c69a50;
+}
+
+.feature:last-child {
+    border-right: none;
+}
+
+.feature-icon {
+    width: 55px;
+    height: 55px;
+    margin: 0 auto 8px;
+    border: 1.5px solid #9b692e;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 27px;
+    color: #70421f;
+}
+
+.feature h3 {
+    color: #4b2b19;
+    font-size: 15px;
+    line-height: 1.3;
+}
+
+.details-wrap {
+    text-align: center;
+    padding-top: 12px;
+    position: relative;
+    z-index: 1;
+}
+
+.details-button {
+    display: inline-block;
+    min-width: 320px;
+    padding: 18px 35px;
+    border: 2px solid #e2bd66;
+    border-radius: 40px;
+    background: linear-gradient(135deg,#a87937,#572b16);
+    color: white;
+    font-size: 21px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(75,43,25,.2);
+}
+
+.details-content {
+    display: none;
+    max-width: 800px;
+    margin: 18px auto 5px;
+    padding: 20px;
+    border: 1px solid #c69a50;
+    border-radius: 15px;
+    background: rgba(255,250,240,.95);
+    color: #63452e;
+    line-height: 1.7;
+}
+
+.details-content.show {
+    display: block;
+}
+
+.details-content h3 {
+    margin-bottom: 10px;
+    color: #572b16;
+}
+
+.details-content ul {
+    text-align: left;
+    padding-left: 22px;
+    margin-top: 10px;
+}
+
+.bottom-wave {
+    position: absolute;
+    z-index: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 15px;
+    background: linear-gradient(90deg,#70401e,#e6c16d,#70401e);
+}
+
+.footer {
+    text-align: center;
+    margin-top: 28px;
+    color: #806344;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+@media(max-width:850px) {
+    .product-section {
+        padding: 25px 18px;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .product-info {
+        padding: 10px 0;
+    }
+
+    .product-photo img {
+        max-height: 340px;
+    }
+
+    .features {
+        grid-template-columns: repeat(3,1fr);
+        row-gap: 15px;
+    }
+
+    .feature:nth-child(3) {
+        border-right: none;
+    }
+}
+
+@media(max-width:520px) {
+    .page {
+        padding: 16px 10px;
+    }
+
+    .brand {
+        font-size: 17px;
+    }
+
+    .brand span {
+        font-size: 9px;
+    }
+
+    .back-button {
+        padding: 10px 12px;
+        font-size: 11px;
+    }
+
+    .product-section {
+        border-radius: 22px;
+        padding: 20px 12px;
+    }
+
+    .product-info h1 {
+        font-size: 38px;
+    }
+
+    .product-photo img {
+        max-height: 250px;
+    }
+
+    .features {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .feature:nth-child(2),
+    .feature:nth-child(4) {
+        border-right: none;
+    }
+
+    .feature:nth-child(3) {
+        border-right: 1px solid #c69a50;
+    }
+
+    .feature h3 {
+        font-size: 13px;
+    }
+
+    .details-button {
+        min-width: 0;
+        width: 90%;
+        font-size: 17px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main class="page">
+
+<header class="header">
+    <div class="brand">
+        KEEPER®
+        <span>APPLIANCES INDIA</span>
+    </div>
+
+    <a href="index.html#products" class="back-button">
+        ← Back to Products
+    </a>
+</header>
+
+<section class="product-section">
+
+    <div class="hero">
+
+        <div class="product-info">
+            <h1>
+                KEEPER
+                <span>Automatic<br>Bottle Filling<br>Machine</span>
+            </h1>
+
+            <p class="subtitle">
+                Ideal Solution for Packaged<br>
+                Drinking Water & Beverage Industry
+            </p>
+
+            <div class="capacity">
+                💧 250 – 1,000 Bottles Per Hour
+                <br>
+                <small>(Model Dependent)</small>
+            </div>
+        </div>
+
+        <div class="product-photo">
+            <img
+                src="keeper-automatic-bottle-filling-machine.png.jpeg"
+                alt="KEEPER Automatic Bottle Filling Machine">
+        </div>
+
+    </div>
+
+    <div class="features">
+
+        <div class="feature">
+            <div class="feature-icon">◴</div>
+            <h3>High Speed<br>Filling</h3>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">⚙</div>
+            <h3>Accurate<br>Volume Control</h3>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">✓</div>
+            <h3>Hygienic &<br>Food Safe</h3>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">⟳</div>
+            <h3>Automatic<br>Operation</h3>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">▥</div>
+            <h3>High<br>Production</h3>
+        </div>
+
+    </div>
+
+    <div class="details-wrap">
+
+        <button class="details-button" onclick="toggleDetails()">
+            View Details →
+        </button>
+
+        <div class="details-content" id="details">
+            <h3>KEEPER Automatic Bottle Filling Machine</h3>
+
+            <p>
+                Automatic bottle filling solutions for packaged
+                drinking water and beverage applications.
+            </p>
+
+            <ul>
+                <li>Bottle sizes: 250 ml, 1 Litre and 2 Litres (customizable)</li>
+                <li>Filling speed: 20 BPM onwards, model dependent</li>
+                <li>Output capacity: 250–1,000 bottles per hour, model dependent</li>
+                <li>Single or multi-filling heads (custom options)</li>
+                <li>SS 304 food-grade stainless-steel body</li>
+                <li>PLC-based control with sensor-controlled auto shut-off</li>
+            </ul>
+
+            <p>
+                Contact KEEPER for model options and customized requirements.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="bottom-wave"></div>
+
+</section>
+
+<footer class="footer">
+    KEEPER APPLIANCES INDIA
+    • QUALITY • PERFORMANCE • RELIABILITY
+</footer>
+
+</main>
+
+<script>
+function toggleDetails() {
+    const details = document.getElementById("details");
+    const button = document.querySelector(".details-button");
+
+    details.classList.toggle("show");
+
+    button.textContent = details.classList.contains("show")
+        ? "Hide Details ↑"
+        : "View Details →";
+}
+</script>
+
+</body>
+</html>
