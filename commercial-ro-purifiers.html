@@ -1,0 +1,516 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KEEPER Commercial RO Purifiers</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+    font-family:Arial,sans-serif;
+    color:#4b2b19;
+    background:#f8f2e8;
+}
+
+.page{
+    min-height:100vh;
+    padding:25px 3% 35px;
+    background:
+      linear-gradient(rgba(255,250,240,.15),rgba(255,250,240,.15)),
+      url('keeper-commercial-ro-background.png.jpeg')
+      center center/cover no-repeat;
+}
+
+.header{
+    max-width:1500px;
+    margin:0 auto 28px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+}
+
+.brand{
+    color:#572b16;
+    font-size:25px;
+    font-weight:800;
+    letter-spacing:1px;
+}
+
+.brand span{
+    display:block;
+    margin-top:5px;
+    color:#a87937;
+    font-size:11px;
+    letter-spacing:3px;
+}
+
+.back-button{
+    text-decoration:none;
+    color:white;
+    background:linear-gradient(135deg,#a87937,#572b16);
+    padding:12px 22px;
+    border-radius:30px;
+    font-size:14px;
+    font-weight:bold;
+}
+
+.page-heading{
+    text-align:center;
+    margin:10px auto 35px;
+}
+
+.page-heading h1{
+    color:#572b16;
+    font-family:Georgia,serif;
+    font-size:clamp(30px,4vw,52px);
+    margin-bottom:12px;
+}
+
+.page-heading p{
+    color:#806344;
+    font-size:clamp(14px,1.5vw,19px);
+    letter-spacing:1px;
+}
+
+.gold-line{
+    width:150px;
+    height:3px;
+    margin:15px auto;
+    background:linear-gradient(90deg,#8b5423,#e8c36c,#8b5423);
+    border-radius:10px;
+}
+
+.products-grid{
+    max-width:1500px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(5,minmax(0,1fr));
+    gap:15px;
+    align-items:stretch;
+}
+
+.product-card{
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    text-align:center;
+    padding:25px 20px 22px;
+    border:1.5px solid #c69a50;
+    border-radius:28px;
+    background:rgba(255,250,241,.90);
+    box-shadow:0 12px 30px rgba(75,43,25,.13);
+    transition:transform .3s,box-shadow .3s;
+}
+
+.product-card:hover{
+    transform:translateY(-7px);
+    box-shadow:0 18px 35px rgba(75,43,25,.2);
+}
+
+.product-card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:7px;
+    background:linear-gradient(90deg,#70401e,#e6c16d,#70401e);
+}
+
+.product-tag{
+    display:inline-block;
+    align-self:center;
+    padding:7px 18px;
+    margin:5px 0 12px;
+    border-radius:25px;
+    background:linear-gradient(135deg,#a87937,#572b16);
+    color:white;
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:1px;
+}
+
+.product-card h2{
+    min-height:62px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#572b16;
+    font-family:Georgia,serif;
+    font-size:clamp(20px,2vw,26px);
+    line-height:1.2;
+    margin-bottom:10px;
+}
+
+.product-image{
+    height:300px;
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:5px auto 15px;
+}
+
+.product-image img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    filter:drop-shadow(0 10px 12px rgba(0,0,0,.13));
+}
+
+.product-description{
+    color:#70563f;
+    font-size:14px;
+    line-height:1.6;
+    min-height:65px;
+    margin:0 4px 18px;
+}
+
+.feature-list{
+    text-align:left;
+    list-style:none;
+    margin:0 0 22px;
+    padding:15px 13px;
+    border-top:1px solid rgba(174,126,55,.35);
+    border-bottom:1px solid rgba(174,126,55,.35);
+    flex-grow:1;
+}
+
+.feature-list li{
+    color:#63452e;
+    font-size:13px;
+    line-height:1.5;
+    padding:5px 0;
+}
+
+.feature-list li::before{
+    content:"✦";
+    color:#a87937;
+    font-weight:bold;
+    margin-right:9px;
+}
+
+.details-button{
+    display:inline-block;
+    width:100%;
+    padding:15px 18px;
+    border:2px solid #e2bd66;
+    border-radius:35px;
+    background:linear-gradient(135deg,#a87937,#572b16);
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 5px 13px rgba(75,43,25,.18);
+}
+
+.details-content{
+    display:none;
+    text-align:left;
+    margin-top:15px;
+    padding:15px;
+    border:1px solid #c69a50;
+    border-radius:14px;
+    background:rgba(255,250,240,.96);
+    color:#63452e;
+    font-size:13px;
+    line-height:1.7;
+}
+
+.details-content.show{display:block}
+
+.details-content h3{
+    color:#572b16;
+    margin-bottom:8px;
+}
+
+.footer{
+    text-align:center;
+    margin-top:35px;
+    color:#806344;
+    font-size:13px;
+    letter-spacing:1px;
+}
+
+@media(max-width:1000px){
+    .products-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+    .product-image{height:280px}
+}
+
+@media(max-width:600px){
+    .page{padding:16px 12px 25px}
+
+    .header{margin-bottom:22px}
+
+    .brand{font-size:18px}
+    .brand span{font-size:9px}
+
+    .back-button{
+        padding:10px 12px;
+        font-size:11px;
+    }
+
+    .page-heading{margin-bottom:25px}
+
+    .products-grid{
+        grid-template-columns:1fr;
+        gap:20px;
+    }
+
+    .product-card{padding:23px 17px 19px}
+
+    .product-card h2{
+        min-height:auto;
+        font-size:25px;
+    }
+
+    .product-image{height:300px}
+
+    .product-description{min-height:auto}
+}
+</style>
+</head>
+
+<body>
+<main class="page">
+
+<header class="header">
+    <div class="brand">
+        KEEPER®
+        <span>APPLIANCES INDIA</span>
+    </div>
+
+    <a href="index.html#products" class="back-button">
+        ← Back to Products
+    </a>
+</header>
+
+<section class="page-heading">
+    <h1>Commercial RO Purifiers</h1>
+    <div class="gold-line"></div>
+    <p>High Performance &nbsp; | &nbsp; Pure Water &nbsp; | &nbsp; Reliable Solutions</p>
+</section>
+
+<section class="products-grid">
+
+<!-- CARD 1: UV PURIFIER -->
+<article class="product-card">
+    <span class="product-tag">COMMERCIAL UV</span>
+    <h2>KEEPER UV Water Purifier</h2>
+
+    <div class="product-image">
+        <img src="keeper-commercial-uv-water-purifier.png.jpeg"
+             alt="KEEPER Commercial UV Water Purifier">
+    </div>
+
+    <p class="product-description">
+        Advanced UV purification system for commercial
+        kitchens, restaurants and institutions.
+    </p>
+
+    <ul class="feature-list">
+        <li>UV sterilization technology</li>
+        <li>Stainless steel UV chamber</li>
+        <li>Multi-stage filtration system</li>
+        <li>Wall or floor mounted options</li>
+        <li>Available in multiple capacities</li>
+    </ul>
+
+    <button class="details-button"
+      onclick="toggleDetails('uv-details',this)">
+      View Details →
+    </button>
+
+    <div class="details-content" id="uv-details">
+        <h3>Product Configuration</h3>
+        <p>Capacity: 60 LPH to 5000 LPH (customizable).</p>
+        <p>UV lamp: 11W to 55W, based on capacity.</p>
+        <p>Five-stage purification: Sediment, Carbon, CTO, UV and Post Carbon.</p>
+        <p>Food-grade PP, SS and Polycarbonate components.</p>
+    </div>
+</article>
+
+
+<!-- CARD 2: COMMERCIAL RO 25 LPH -->
+<article class="product-card">
+    <span class="product-tag">COMMERCIAL RO</span>
+    <h2>KEEPER Commercial RO – 25 LPH</h2>
+
+    <div class="product-image">
+        <img src="keeper-commercial-ro-purifier-25lph.png.jpeg"
+             alt="KEEPER Commercial RO Purifier 25 LPH">
+    </div>
+
+    <p class="product-description">
+        Heavy-duty commercial RO purification for
+        businesses and professional applications.
+    </p>
+
+    <ul class="feature-list">
+        <li>25 LPH purification capacity</li>
+        <li>Dual RO membrane system</li>
+        <li>Industrial-grade activated carbon</li>
+        <li>Metal-coated frame</li>
+        <li>Pressure gauge for monitoring</li>
+    </ul>
+
+    <button class="details-button"
+      onclick="toggleDetails('ro25-details',this)">
+      View Details →
+    </button>
+
+    <div class="details-content" id="ro25-details">
+        <h3>Product Specifications</h3>
+        <p>Purification capacity: 25 LPH.</p>
+        <p>RO membrane: 2 × 100 GPD.</p>
+        <p>Booster pump: 1 × 100 GPD.</p>
+        <p>Six-stage RO purification system.</p>
+        <p>Wall-mounted installation.</p>
+    </div>
+</article>
+
+
+<!-- CARD 3: DIGITAL RO 25 LPH -->
+<article class="product-card">
+    <span class="product-tag">DIGITAL RO</span>
+    <h2>KEEPER Digital RO – 25 LPH</h2>
+
+    <div class="product-image">
+        <img src="keeper-commercial-digital-ro-25lph.png.jpeg"
+             alt="KEEPER Digital RO Purifier 25 LPH">
+    </div>
+
+    <p class="product-description">
+        Compact digital commercial RO purifier
+        with real-time TDS display.
+    </p>
+
+    <ul class="feature-list">
+        <li>25 LPH capacity</li>
+        <li>Real-time digital TDS display</li>
+        <li>Six-stage RO purification</li>
+        <li>Pressure gauge monitoring</li>
+        <li>Compact metal frame design</li>
+    </ul>
+
+    <button class="details-button"
+      onclick="toggleDetails('digital25-details',this)">
+      View Details →
+    </button>
+
+    <div class="details-content" id="digital25-details">
+        <h3>Product Specifications</h3>
+        <p>Purification capacity: 25 LPH.</p>
+        <p>Pre-filters: PP Spun + Activated Carbon + CTO.</p>
+        <p>RO membrane: 2 × 100 GPD.</p>
+        <p>Booster pump: 1 × 100 GPD.</p>
+        <p>Power: 24V DC | 36W.</p>
+    </div>
+</article>
+
+
+<!-- CARD 4: DIGITAL RO 50 LPH -->
+<article class="product-card">
+    <span class="product-tag">DIGITAL RO</span>
+    <h2>KEEPER Digital RO – 50 LPH</h2>
+
+    <div class="product-image">
+        <img src="keeper-commercial-digital-ro-50lph.png.jpeg"
+             alt="KEEPER Digital RO Purifier 50 LPH">
+    </div>
+
+    <p class="product-description">
+        Higher-capacity digital RO system for
+        commercial water purification requirements.
+    </p>
+
+    <ul class="feature-list">
+        <li>50 LPH capacity</li>
+        <li>Digital TDS display</li>
+        <li>Six-stage RO purification</li>
+        <li>Heavy-duty pump and membrane system</li>
+        <li>Pressure gauges for monitoring</li>
+    </ul>
+
+    <button class="details-button"
+      onclick="toggleDetails('digital50-details',this)">
+      View Details →
+    </button>
+
+    <div class="details-content" id="digital50-details">
+        <h3>Product Specifications</h3>
+        <p>Purification capacity: 50 LPH.</p>
+        <p>RO membrane: 2 × 100 GPD.</p>
+        <p>Booster pump: 1 × 100 GPD.</p>
+        <p>Power: 24V DC | 36W.</p>
+        <p>Wall-mounted installation.</p>
+    </div>
+</article>
+
+
+<!-- CARD 5: DIGITAL RO 100 LPH -->
+<article class="product-card">
+    <span class="product-tag">DIGITAL RO</span>
+    <h2>KEEPER Digital RO – 100 LPH</h2>
+
+    <div class="product-image">
+        <img src="keeper-commercial-digital-ro-100lph.png.jpeg"
+             alt="KEEPER Digital RO Purifier 100 LPH">
+    </div>
+
+    <p class="product-description">
+        High-capacity commercial digital RO system
+        for larger purification requirements.
+    </p>
+
+    <ul class="feature-list">
+        <li>100 LPH capacity</li>
+        <li>Digital TDS display</li>
+        <li>Five filter housings as per product image</li>
+        <li>Heavy-duty metal frame</li>
+        <li>High-capacity purification solution</li>
+    </ul>
+
+    <button class="details-button"
+      onclick="toggleDetails('digital100-details',this)">
+      View Details →
+    </button>
+
+    <div class="details-content" id="digital100-details">
+        <h3>Product Details</h3>
+        <p>Purification capacity: 100 LPH.</p>
+        <p>Digital TDS display and pressure gauge monitoring.</p>
+        <p>For commercial water purification applications.</p>
+        <p>Contact KEEPER for complete configuration and specifications.</p>
+    </div>
+</article>
+
+</section>
+
+<footer class="footer">
+    KEEPER APPLIANCES INDIA
+    • QUALITY • PERFORMANCE • RELIABILITY
+</footer>
+
+</main>
+
+<script>
+function toggleDetails(id,button){
+    const details=document.getElementById(id);
+    details.classList.toggle("show");
+
+    button.textContent=details.classList.contains("show")
+      ? "Hide Details ↑"
+      : "View Details →";
+}
+</script>
+
+</body>
+</html>
